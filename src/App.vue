@@ -1,12 +1,24 @@
 <template>
   <div id="app">
+    <Navigation />
+
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/cookie-clicker">Cookie Clicker</router-link>
     </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+import Navigation from "@/components/navigation/navigation";
+
+export default {
+  components: {
+    Navigation,
+  },
+};
+</script>pt
 
 <style lang="scss">
 #app {

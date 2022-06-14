@@ -13,17 +13,8 @@ export default {
     Navigation,
   },
 };
-</script>pt
+</script>
 
 <style lang="scss">
 @import "@/assets/scss/vendors/bootstrap-vue/styles.scss";
-// @import "@/assets/scss/helpers/global";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $pkdark;
-}
 </style>

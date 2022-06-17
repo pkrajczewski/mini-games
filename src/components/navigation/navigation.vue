@@ -66,7 +66,7 @@ export default {
   // },
   computed: {
     navigationLinks() {
-      return this.$store.getters.navigationLinks;
+      return this.$store.getters["NavigationLinks/navigationLinks"];
     },
   },
   // data() {

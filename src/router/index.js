@@ -44,6 +44,16 @@ const routes = [
     component: () => import("@/views/CookieClickerView.vue"),
   },
   {
+    path: "/cookie-clicker7",
+    name: "cookie-clicker7",
+    component: () => import("@/views/CookieClickerView.vue"),
+  },
+  {
+    path: "/cookie-clicker8",
+    name: "cookie-clicker8",
+    component: () => import("@/views/CookieClickerView.vue"),
+  },
+  {
     path: "/info",
     name: "info",
     component: () => import("@/views/CookieClickerView.vue"),

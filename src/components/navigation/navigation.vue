@@ -6,7 +6,9 @@
         :key="`router-link-${brandLink.name}`"
         :to="{ name: brandLink.name }"
       >
-        {{ brandLink.title }}
+        <span class="navigation__brand-text">
+          {{ brandLink.title }}
+        </span>
         <span class="navigation__brand-icon" v-html="`${brandLink.svg}`"></span>
         <div class="navigation__brand-line"></div>
       </router-link>
@@ -22,7 +24,9 @@
               class="navigation__wrapper-link-icon"
               v-html="`${link.svg}`"
             ></span>
-            {{ link.title }}
+            <span class="navigation__wrapper-link-text">
+              {{ link.title }}
+            </span>
           </router-link>
         </template>
       </div>
@@ -33,7 +37,9 @@
       >
         <div class="navigation__info-line"></div>
         <span class="navigation__info-icon" v-html="`${infoLink.svg}`"></span>
-        {{ infoLink.title }}
+        <span class="navigation__info-text">
+          {{ infoLink.title }}
+        </span>
       </router-link>
     </nav>
   </header>

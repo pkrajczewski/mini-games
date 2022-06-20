@@ -1,0 +1,15 @@
+.cookie-clicker {
+  height: calc(100vh);
+  width: calc(100% - 100px);
+  margin-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 991px) {
+  .cookie-clicker {
+    height: calc(100vh - 72px);
+    width: calc(100%);
+    margin-left: unset;
+  }
+}

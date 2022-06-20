@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import NavigationLinks from "./modules/navigation-links-module";
 import BrandLink from "./modules/brand-link-module";
 import InfoLink from "./modules/info-link-module";
+import Income from "./modules/income-module";
 
 Vue.use(Vuex);
 
@@ -19,5 +20,6 @@ export default new Vuex.Store({
     NavigationLinks,
     BrandLink,
     InfoLink,
+    Income,
   },
 });

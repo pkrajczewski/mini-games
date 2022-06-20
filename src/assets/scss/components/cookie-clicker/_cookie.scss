@@ -1,0 +1,56 @@
+.cookie {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4rem;
+  height: calc(100%);
+
+  &__text {
+    &-title {
+      font-size: 1.2rem;
+      font-size: clamp(
+        1.2rem,
+        1.0634146341463415rem + 0.7804878048780488vw,
+        2rem
+      );
+      line-height: normal;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    &-income {
+      font-size: 1.4rem;
+      font-size: clamp(
+        1.4rem,
+        1.1268292682926828rem + 1.5609756097560976vw,
+        3rem
+      );
+      line-height: normal;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+
+    &-image {
+      transition: transform 0.1s ease-in;
+      user-select: none;
+    }
+    &:active {
+      & .cookie__button-image {
+        transform: scale(0.95);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cookie {
+    width: 100%;
+  }
+}

@@ -9,12 +9,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  pointer-events: none;
 
   &__brand {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    pointer-events: all;
 
     &-text {
       text-align: center;
@@ -86,6 +88,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      pointer-events: all;
 
       &-text {
         text-align: center;
@@ -123,6 +126,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    pointer-events: all;
 
     &-text {
       text-align: center;

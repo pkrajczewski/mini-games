@@ -10,3 +10,8 @@
   color: $pkdark;
   background-color: $pklight;
 }
+
+main {
+  position: relative;
+  z-index: 1;
+}

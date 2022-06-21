@@ -9,7 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  pointer-events: none;
+  pointer-events: all;
+  z-index: 999;
 
   &__brand {
     display: flex;
@@ -72,13 +73,13 @@
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
-    overflow-y: scroll;
     overflow-x: hidden;
+    overflow-y: scroll;
     overscroll-behavior-inline: contain;
+    -ms-scroll-snap-type: y mandatory;
     scroll-snap-type: y mandatory;
     scroll-snap-align: start;
-    scrollbar-width: 0;
-
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -192,6 +193,7 @@
     flex-direction: row;
     align-items: center;
     background-color: unset;
+    pointer-events: none;
 
     &__brand {
       position: absolute;
@@ -225,6 +227,7 @@
       width: 100%;
       background-color: $pkdark;
       padding: 1rem;
+      pointer-events: all;
       &-link {
         &-text {
           display: none;

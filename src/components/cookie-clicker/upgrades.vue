@@ -10,87 +10,27 @@
     <div class="upgrades__container">
       <div class="upgrades__container-title">Upgrades:</div>
       <ul class="upgrades__container-list">
-        <li class="upgrades__container-list-item">
-          <button class="upgrades__container-list-item-button">
+        <li
+          v-for="(upgrade, index) in upgrades"
+          :key="index"
+          class="upgrades__container-list-item"
+        >
+          <button
+            @click="buy(upgrade.id)"
+            :disabled="upgrade.cost > money"
+            class="upgrades__container-list-item-button"
+          >
             <div class="upgrades__container-list-item-button-left">
               <span class="upgrades__container-list-item-button-left-bonus"
-                >+0.1$ / 1s</span
+                >+{{ upgrade.value }}$ / 1s</span
               >
             </div>
             <div class="upgrades__container-list-item-button-right">
-              <span class="upgrades__container-list-item-button-right-name"
-                >BAKING STUDENT</span
-              >
+              <span class="upgrades__container-list-item-button-right-name">{{
+                upgrade.title
+              }}</span>
               <span class="upgrades__container-list-item-button-right-cost"
-                >Cost: 10$</span
-              >
-            </div>
-          </button>
-        </li>
-        <li class="upgrades__container-list-item">
-          <button class="upgrades__container-list-item-button">
-            <div class="upgrades__container-list-item-button-left">
-              <span class="upgrades__container-list-item-button-left-bonus"
-                >+2$ / 1s</span
-              >
-            </div>
-            <div class="upgrades__container-list-item-button-right">
-              <span class="upgrades__container-list-item-button-right-name"
-                >BAKERY CHIEF</span
-              >
-              <span class="upgrades__container-list-item-button-right-cost"
-                >Cost: 200$</span
-              >
-            </div>
-          </button>
-        </li>
-        <li class="upgrades__container-list-item">
-          <button class="upgrades__container-list-item-button">
-            <div class="upgrades__container-list-item-button-left">
-              <span class="upgrades__container-list-item-button-left-bonus"
-                >+25$ / 1s</span
-              >
-            </div>
-            <div class="upgrades__container-list-item-button-right">
-              <span class="upgrades__container-list-item-button-right-name"
-                >OVEN</span
-              >
-              <span class="upgrades__container-list-item-button-right-cost"
-                >Cost: 3000$</span
-              >
-            </div>
-          </button>
-        </li>
-        <li class="upgrades__container-list-item">
-          <button class="upgrades__container-list-item-button">
-            <div class="upgrades__container-list-item-button-left">
-              <span class="upgrades__container-list-item-button-left-bonus"
-                >+125$ / 1s</span
-              >
-            </div>
-            <div class="upgrades__container-list-item-button-right">
-              <span class="upgrades__container-list-item-button-right-name"
-                >BAKERY</span
-              >
-              <span class="upgrades__container-list-item-button-right-cost"
-                >Cost: 5000000$</span
-              >
-            </div>
-          </button>
-        </li>
-        <li class="upgrades__container-list-item">
-          <button class="upgrades__container-list-item-button">
-            <div class="upgrades__container-list-item-button-left">
-              <span class="upgrades__container-list-item-button-left-bonus"
-                >+1000$ / 1s</span
-              >
-            </div>
-            <div class="upgrades__container-list-item-button-right">
-              <span class="upgrades__container-list-item-button-right-name"
-                >COOKIES FACTORY</span
-              >
-              <span class="upgrades__container-list-item-button-right-cost"
-                >Cost: 5000000$</span
+                >Cost: {{ upgrade.cost }}$</span
               >
             </div>
           </button>
@@ -104,7 +44,18 @@
 export default {
   methods: {
     clearMoney() {
-      this.$store.commit("clearMoney");
+      this.$store.commit("Money/clearMoney");
+    },
+    buy(upgradeId) {
+      let income = this.income;
+      let money = this.money;
+      let upgrade = this.upgrades.find((upg) => upg.id == upgradeId);
+
+      income += upgrade.value;
+      money -= upgrade.cost;
+
+      this.$store.commit("Income/setIncome", income);
+      this.$store.commit("Money/setMoney", money);
     },
   },
   computed: {
@@ -113,6 +64,9 @@ export default {
     },
     income() {
       return this.$store.getters["Income/income"];
+    },
+    upgrades() {
+      return this.$store.getters["Upgrades/upgrades"];
     },
   },
   created() {

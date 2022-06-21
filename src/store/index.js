@@ -5,6 +5,7 @@ import BrandLink from "./modules/brand-link-module";
 import InfoLink from "./modules/info-link-module";
 import Income from "./modules/income-module";
 import Money from "./modules/money-module";
+import Upgrades from "./modules/upgrades-module";
 
 Vue.use(Vuex);
 
@@ -23,5 +24,6 @@ export default new Vuex.Store({
     InfoLink,
     Income,
     Money,
+    Upgrades,
   },
 });

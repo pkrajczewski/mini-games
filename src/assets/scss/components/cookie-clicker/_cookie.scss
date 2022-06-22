@@ -36,6 +36,7 @@
     background-color: transparent;
     border: 0;
     padding: 0;
+    touch-action: manipulation;
 
     &-image {
       transition: transform 0.1s ease-in;
